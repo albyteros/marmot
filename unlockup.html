@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=.8" />
+  <title>I don't use this.</title>
+  <style>
+    body {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background-color: black;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .content {
+      width: 80%;
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      animation: colorCycle 2s infinite alternate;
+      user-select: none;
+      font-family: monospace;
+    }
+
+    .button-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* two equal-width columns */
+      gap: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .creator-button {
+      width: 100%; /* force button to fill its grid cell */
+      padding: 12px 0; /* vertical padding only */
+      font-size: 16px;
+      font-family: monospace;
+      background: linear-gradient(135deg, #444, #222);
+      color: #eee;
+      border: 2px solid #666;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      text-align: center;
+      display: block;
+      text-decoration: none; /* for <a> tags */
+    }
+
+    .creator-button:hover,
+    .creator-button:focus {
+      background: linear-gradient(135deg, #666, #444);
+      border-color: #aaa;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.9);
+      outline: none;
+    }
+
+    .creator-button:active {
+      background: linear-gradient(135deg, #333, #111);
+      border-color: #555;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    @keyframes colorCycle {
+      0%   { color: red; }
+      14%  { color: orange; }
+      28%  { color: yellow; }
+      42%  { color: green; }
+      57%  { color: blue; }
+      71%  { color: indigo; }
+      85%  { color: violet; }
+      100% { color: white; }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h2>Awa-WA!</h2>
+
+    <p>
+      NinjaHyrax is a lightweight, undetectable macOS web browser written in Python with PyObjC.  
+      Click below to download the latest release as a zip file.
+    </p>
+
+    <div class="button-container">
+      <a href="ninjahyrax.zip" class="creator-button" download>↓ I like unfair advantages</a>
+      <button class="creator-button" onclick="location.href='index.html'">← I'm not a CHEATER!</button>
+    </div>
+  </div>
+</body>
+</html>

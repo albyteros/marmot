@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Playing Gates</title>
+	<style>
+		body {
+			margin: 0;
+			background: black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100vw;
+			height: 100vh;
+		}
+		#canvas {
+			display: block;
+		}
+		#canvas:focus {
+        outline: none;
+        }
+	</style>
+</head>
+<body>
+	<button onclick="location.href='index.html'" style="position:fixed;top:12px;left:12px;z-index:999;padding:8px 16px;font-family:monospace;font-size:14px;background:#222;color:#eee;border:2px solid #666;border-radius:8px;cursor:pointer;">&#8592; Leave Game</button>
+	<canvas id="canvas"></canvas>
+	<script src="PlayingGates.js"></script>
+	<script>
+		const engine = new Engine({"args":[],"canvasResizePolicy":1,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"PlayingGates","experimentalVK":false,"fileSizes":{"PlayingGates.pck":2702500,"PlayingGates.wasm":38034280},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4});
+		engine.startGame();
+	</script>
+</body>
+</html>

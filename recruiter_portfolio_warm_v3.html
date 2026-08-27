@@ -1,0 +1,179 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.portfolio {
+  background: black;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 2.5rem 1rem;
+  min-height: 100vh;
+}
+.paper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 2.75rem;
+  border: 0.5px solid #333;
+  border-radius: 4px;
+}
+@keyframes borderStrobe {
+  0%   { border-bottom-color: red; }
+  14%  { border-bottom-color: orange; }
+  28%  { border-bottom-color: yellow; }
+  42%  { border-bottom-color: green; }
+  57%  { border-bottom-color: blue; }
+  71%  { border-bottom-color: indigo; }
+  85%  { border-bottom-color: violet; }
+  100% { border-bottom-color: white; }
+}
+@keyframes colorCycle {
+  0%   { color: red; }
+  14%  { color: orange; }
+  28%  { color: yellow; }
+  42%  { color: green; }
+  57%  { color: blue; }
+  71%  { color: indigo; }
+  85%  { color: violet; }
+  100% { color: white; }
+}
+.name {
+  font-size: 26px;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+  display: inline-block;
+  animation: borderStrobe 2s infinite alternate;
+}
+.role { font-size: 13px; color: #aaa; margin-top: 6px; font-style: italic; }
+.header-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; padding-top: 4px; }
+.badge { font-size: 11px; font-weight: bold; padding: 3px 10px; border-radius: 2px; border: 0.5px solid #444; background: #111; color: #ccc; font-family: monospace; }
+.divider { border: none; border-top: 0.5px solid #2a2a2a; margin: 1.5rem 0; }
+.label { font-size: 10px; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin-bottom: 0.75rem; font-family: monospace; }
+.summary { font-size: 14px; line-height: 1.8; color: #bbb; }
+.summary a { animation: colorCycle 2s infinite alternate; text-decoration: underline; font-weight: bold; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.card { background: #0d0d0d; border-radius: 3px; border: 0.5px solid #2a2a2a; padding: 1rem 1.125rem; }
+.card.featured { border: 0.5px solid #555; background: #111; }
+.feat-pill { display: inline-block; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 2px; background: #000; border: 0.5px solid #555; color: #aaa; margin-bottom: 8px; font-family: monospace; letter-spacing: 0.05em; animation: colorCycle 2s infinite alternate; }
+.card-title { font-size: 14px; font-weight: bold; color: white; margin-bottom: 5px; }
+.card-desc { font-size: 12.5px; line-height: 1.65; color: #999; margin-bottom: 10px; }
+.sub-points { margin: 6px 0 10px; display: flex; flex-direction: column; gap: 5px; }
+.sub-point { display: flex; gap: 7px; align-items: flex-start; font-size: 12px; color: #888; line-height: 1.55; }
+.sub-dot { width: 3px; height: 3px; border-radius: 50%; background: #555; flex-shrink: 0; margin-top: 6px; }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag { font-size: 10px; padding: 2px 7px; border-radius: 2px; border: 0.5px solid #333; color: #777; background: #000; font-family: monospace; }
+.highlight { font-size: 11px; font-weight: bold; color: #aaa; margin-top: 8px; font-family: monospace; }
+.skills-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill { font-size: 12px; padding: 4px 12px; border-radius: 2px; border: 0.5px solid #333; color: #bbb; background: #0d0d0d; font-family: monospace; }
+.ach-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.ach-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: #aaa; line-height: 1.6; }
+.dot { width: 4px; height: 4px; border-radius: 50%; background: #555; flex-shrink: 0; margin-top: 7px; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.c-item { font-size: 13px; color: #bbb; }
+.c-label { display: block; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-bottom: 3px; font-family: monospace; }
+.c-link { font-weight: bold; animation: colorCycle 2s infinite alternate; text-decoration: underline; }
+footer { text-align: center; font-size: 11px; color: #444; margin-top: 2rem; font-family: monospace; }
+</style>
+
+<div class="portfolio">
+<div class="paper">
+
+  <div class="header-row">
+    <div>
+      <div class="name">Andrew Watters</div>
+      <div class="role">CS Freshman - Auburn University - Cybersecurity &amp; AI</div>
+    </div>
+    <div class="badges">
+      <span class="badge">ACT 35</span>
+      <span class="badge">CIA STEAM Scholar</span>
+      <span class="badge">4.4 GPA</span>
+    </div>
+  </div>
+
+  <div class="label">Summary</div>
+  <p class="summary">Computer Science freshman concentrating in Cybersecurity and AI, with hands-on experience building hardware-software systems, automation tools, interactive games, and AI-powered applications. Focused on real-world impact in security engineering and critical infrastructure defense. Public portfolio at <a href="https://albyteros.com">albyteros.com</a>.</p>
+
+  <div class="divider"></div>
+
+  <div class="label">Projects</div>
+  <div class="grid">
+
+    <div class="card featured">
+      <span class="feat-pill">Portfolio site</span>
+      <div class="card-title">albyteros.com</div>
+      <div class="card-desc">Personal developer portfolio -- black background, monospace/serif type, rainbow ASCII animations. Hosts two live projects:</div>
+      <div class="sub-points">
+        <div class="sub-point"><span class="sub-dot"></span><span>Playing Gates -- Godot 4 physics-based laser puzzle game, embedded via web export</span></div>
+        <div class="sub-point"><span class="sub-dot"></span><span>Chiikawa-style character creator -- Flask app with layered custom asset system</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Flask</span><span class="tag">Passenger/WSGI</span><span class="tag">Godot Web Export</span><span class="tag">HTML/CSS/JS</span><span class="tag">Full-stack</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">EZ3 Trackball Controller</div>
+      <div class="card-desc">Custom gaming controller merging a DualSense with a precision trackball. Higher accuracy than a controller, better ergo than a mouse. Patent pending.</div>
+      <div class="tags"><span class="tag">Hardware</span><span class="tag">HCI</span><span class="tag">3D Printing</span><span class="tag">Input Systems</span></div>
+      <div class="highlight">$10,000 Be More Grant - NSHSS 2024</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Playing Gates</div>
+      <div class="card-desc">Physics-based laser puzzle game in Godot 4. Custom beam physics, target accumulation logic, level base class architecture, BBCode menus with typewriter effects.</div>
+      <div class="tags"><span class="tag">Godot 4</span><span class="tag">GDScript</span><span class="tag">Game Dev</span><span class="tag">Web Export</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Marketplace Arbitrage Bot</div>
+      <div class="card-desc">AI-powered bot that scrapes Facebook Marketplace listings, compares against live eBay pricing via Claude API, and flags underpriced items for resale.</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">LLM API</span><span class="tag">Web Scraping</span></div>
+      <div class="highlight">Hackathon project</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">OCR Automation Script</div>
+      <div class="card-desc">macOS automation using Tesseract OCR and template matching to detect on-screen game UI text and simulate keypress responses in real time.</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Tesseract</span><span class="tag">pynput</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Custom Stealth Browser</div>
+      <div class="card-desc">macOS-focused browser prototype targeting anonymity and reduced fingerprinting surface.</div>
+      <div class="tags"><span class="tag">Security</span><span class="tag">macOS</span><span class="tag">Networking</span></div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="label">Skills</div>
+  <div class="skills-wrap">
+    <span class="skill">Python</span><span class="skill">Java</span><span class="skill">C++</span><span class="skill">JavaScript</span>
+    <span class="skill">Flask</span><span class="skill">GDScript</span><span class="skill">Godot 4</span><span class="skill">OpenCV</span>
+    <span class="skill">Playwright</span><span class="skill">LLM APIs</span><span class="skill">Web Deployment</span><span class="skill">Cybersecurity</span>
+    <span class="skill">Embedded Systems</span><span class="skill">3D Printing</span><span class="skill">Hardware Prototyping</span><span class="skill">Data Structures</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="label">Achievements</div>
+  <ul class="ach-list">
+    <li><span class="dot"></span><span>$10,000 Be More Competition Grant (NSHSS 2024) for the EZ3 Controller Prototype</span></li>
+    <li><span class="dot"></span><span>CIA STEAM Scholarship recipient</span></li>
+    <li><span class="dot"></span><span>ACT 35 - 4.4 weighted GPA</span></li>
+    <li><span class="dot"></span><span>Built and self-hosts a full-stack portfolio site serving multiple live interactive projects</span></li>
+    <li><span class="dot"></span><span>Multiple hardware-integrated, AI-powered, and game systems built as solo projects</span></li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <div class="label">Contact</div>
+  <div class="contact-grid">
+    <div class="c-item"><span class="c-label">Email</span>andrewwatters622@gmail.com</div>
+    <div class="c-item"><span class="c-label">Portfolio</span><a class="c-link" href="https://albyteros.com">albyteros.com</a></div>
+  </div>
+
+  <footer>&#169; 2026 Andrew Watters</footer>
+</div>
+</div>

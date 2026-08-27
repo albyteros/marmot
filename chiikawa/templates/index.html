@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=.8" />
+  <title>ANOTHER HIM</title>
+  <style>
+    body {
+  font-family: monospace;
+  background-color: #000;  /* pitch black */
+  color: white;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+    .container {
+      width: 90%;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: colorCycle 2s infinite alternate;
+      user-select: none;
+    }
+
+    #character-preview {
+  position: relative;
+  width: 390px;
+  height: 390px;
+  margin: 0 auto 30px;
+  border: 5px solid #888;  /* thicker brighter border */
+  box-shadow: 0 0 20px #aaa;
+  background-color: #222;
+}
+    #character-preview img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 390px;
+      height: 390px;
+      image-rendering: pixelated;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 40px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 130px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 6px;
+      user-select: none;
+    }
+
+    select {
+      font-family: monospace;
+      background-color: #222;
+      color: white;
+      border: 1.5px solid #555;
+      padding: 6px 8px;
+      border-radius: 5px;
+      min-width: 120px;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+
+    select:hover,
+    select:focus {
+      border-color: #888;
+      outline: none;
+    }
+
+    /* Styled back button matching landing page style */
+    .back-button {
+      padding: 12px 28px;
+      font-size: 16px;
+      font-family: monospace;
+      background: linear-gradient(135deg, #444, #222);
+      color: #eee;
+      border: 2px solid #666;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      display: block;
+      margin: 0 auto;
+      max-width: 180px;
+    }
+
+    .back-button:hover,
+    .back-button:focus {
+      background: linear-gradient(135deg, #666, #444);
+      border-color: #aaa;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.9);
+      outline: none;
+    }
+
+    .back-button:active {
+      background: linear-gradient(135deg, #333, #111);
+      border-color: #555;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    @keyframes colorCycle {
+      0%   { color: red; }
+      14%  { color: orange; }
+      28%  { color: yellow; }
+      42%  { color: green; }
+      57%  { color: blue; }
+      71%  { color: indigo; }
+      85%  { color: violet; }
+      100% { color: white; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>make a little friend</h2>
+    <div id="character-preview">
+      <img id="extras" alt="Extras" />
+      <img id="palette" alt="Palette" />
+      <img id="shape" alt="Shape" />
+      <img id="brows" alt="Brows" />
+      <img id="face" alt="Face" />
+      <img id="fun" alt="Fun" />
+    </div>
+
+    <div class="controls" id="controls"></div>
+
+    <button class="back-button" onclick="location.href='/'">← leave your creation</button>
+  </div>
+
+  <script>
+    const character = {
+      shape: null,
+      face: null,
+      brows: null,
+      extras: null,
+      fun: null,
+      palette: null
+    };
+    let assets = {};
+    const categories = [
+      { key: 'shape', label: 'Shape', assetsKey: 'Shapes' },
+      { key: 'face', label: 'Face', assetsKey: 'Faces' },
+      { key: 'brows', label: 'Brows', assetsKey: 'Brows' },
+      { key: 'extras', label: 'Extras', assetsKey: 'Extras' },
+      { key: 'fun', label: 'Fun', assetsKey: 'Fun' }
+    ];
+
+    fetch('/creator/assets-data')
+      .then(res => res.json())
+      .then(json => {
+        assets = json;
+        renderControls();
+        setDefaults();
+      })
+      .catch(err => console.error('Failed to load assets:', err));
+
+    function renderControls() {
+      const controlsDiv = document.getElementById('controls');
+      controlsDiv.innerHTML = '';
+
+      // Shape first
+      renderDropdown('shape', controlsDiv);
+
+      // Palette second
+      const paletteGroup = document.createElement('div');
+      paletteGroup.className = 'control-group';
+      const paletteLabel = document.createElement('label');
+      paletteLabel.textContent = 'Palette';
+      const paletteSelect = document.createElement('select');
+      paletteSelect.id = 'paletteSelect';
+      paletteSelect.addEventListener('change', () => {
+        character.palette = paletteSelect.value;
+        updateCharacter();
+      });
+      paletteGroup.appendChild(paletteLabel);
+      paletteGroup.appendChild(paletteSelect);
+      controlsDiv.appendChild(paletteGroup);
+
+      // Then: Face, Brows, Extras, Fun
+      ['face', 'brows', 'extras', 'fun'].forEach(key => {
+        renderDropdown(key, controlsDiv);
+      });
+    }
+
+    function renderDropdown(key, container) {
+      const cat = categories.find(c => c.key === key);
+      const list = assets[cat.assetsKey];
+      if (!list || list.length === 0) return;
+      const group = document.createElement('div');
+      group.className = 'control-group';
+      const label = document.createElement('label');
+      label.textContent = cat.label;
+      group.appendChild(label);
+      const select = document.createElement('select');
+      select.id = `${cat.key}Select`;
+      list.forEach(option => {
+        const opt = document.createElement('option');
+        opt.value = option;
+        opt.textContent = option.replace('.png', '').replace(/([a-z])([A-Z])/g, '$1 $2');
+        select.appendChild(opt);
+      });
+      select.addEventListener('change', () => {
+        character[cat.key] = select.value;
+        if (cat.key === 'shape') updatePaletteOptions(select.value);
+        updateCharacter();
+      });
+      group.appendChild(select);
+      container.appendChild(group);
+    }
+
+    function updatePaletteOptions(shape) {
+      const shapeKey = shape.replace('.png', '').toLowerCase();
+      const paletteSelect = document.getElementById('paletteSelect');
+      paletteSelect.innerHTML = '';
+      const paletteList = assets.Palettes[shapeKey] || [];
+      paletteList.forEach(palette => {
+        const opt = document.createElement('option');
+        opt.value = palette;
+        opt.textContent = palette.replace('.png', '');
+        paletteSelect.appendChild(opt);
+      });
+      character.palette = paletteList[0] || null;
+      updateCharacter();
+    }
+
+    function setDefaults() {
+      categories.forEach(cat => {
+        const list = assets[cat.assetsKey];
+        if (list && list.length > 0) {
+          character[cat.key] = list[0];
+          const select = document.getElementById(`${cat.key}Select`);
+          if (select) select.value = list[0];
+        }
+      });
+      if (character.shape) updatePaletteOptions(character.shape);
+    }
+
+    function updateCharacter() {
+      const base = '/creator/static/assets'; // keep your correct path here
+      const shapeKey = character.shape ? character.shape.replace('.png', '').toLowerCase() : '';
+      document.getElementById('extras').src = character.extras ? `${base}/Extras/${character.extras}` : '';
+      document.getElementById('palette').src = character.palette ? `${base}/Palettes/${shapeKey}Palettes/${character.palette}` : '';
+      document.getElementById('shape').src = character.shape ? `${base}/Shapes/${character.shape}` : '';
+      document.getElementById('brows').src = character.brows ? `${base}/Brows/${character.brows}` : '';
+      document.getElementById('face').src = character.face ? `${base}/Faces/${character.face}` : '';
+      document.getElementById('fun').src = character.fun ? `${base}/Fun/${character.fun}` : '';
+    }
+  </script>
+</body>
+</html>
