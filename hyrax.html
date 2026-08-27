@@ -4,106 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proverbs 30:26</title>
-    <style>
-        body {
-            background-color: black;
-            display: flex;
-            flex-direction: column;   /* stack items vertically */
-            justify-content: center;  /* center them vertically as a group */
-            align-items: center;      /* center horizontally */
-            height: 100vh;
-            margin: 0;
-            padding: 10px;
-            box-sizing: border-box;
-}
-
-        pre {
-            font-family: monospace;
-            font-size: 3px; /* Adjusts the text size */
-            color: white;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            animation: rainbow 2s infinite;
-        }
-
-        /* Strobe effect - toggling opacity */
-        @keyframes strobe {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .button-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .creator-button {
-      flex: 1;
-      padding: 12px 28px;
-      font-size: 16px;
-      font-family: monospace;
-      background: linear-gradient(135deg, #444, #222);
-      color: #eee;
-      border: 2px solid #666;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-      cursor: pointer;
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-    }
-
-    .creator-button:hover,
-    .creator-button:focus {
-      background: linear-gradient(135deg, #666, #444);
-      border-color: #aaa;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.9);
-      outline: none;
-    }
-
-    .creator-button:active {
-      background: linear-gradient(135deg, #333, #111);
-      border-color: #555;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-    }
-
-        /* Rainbow effect for the text */
-        @keyframes rainbow {
-            0% {
-                color: red;
-            }
-            14% {
-                color: orange;
-            }
-            28% {
-                color: yellow;
-            }
-            42% {
-                color: green;
-            }
-            57% {
-                color: blue;
-            }
-            71% {
-                color: indigo;
-            }
-            85% {
-                color: violet;
-            }
-            100% {
-                color: red;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="/style.css" />
 </head>
-<body>
-    <pre>
+<body class="stage">
+    <pre class="ascii-hyrax">
     ROCK HYRAX - CHIRORU                       ............-=..........-:=-:...::::::-:.....................................................................
     ROCK HYRAX - CHIRORU                      .............++..:::...=:---....:::::-::.....................................................................
     ROCK HYRAX - CHIRORU                       .............+-==-:.--:--=:....:::::::::....................................................................
@@ -216,7 +120,7 @@
 ..............::-:.::---:..:::.....-::.:....................::.::-=-=----=:-=+*+=++=++++++*=++++*++-.............:-..:-::-:==-:............................
 ....::..:..:-.:=-:=++-=-=--:-:.:...:.................:--..::-:----=--=++=++=+++=*+==*++++=++=+++#*+-...............:.:.:--:-:..............................
     </pre>
-    <div class="button-container">
+    <div class="button-container row">
     <button class="creator-button" onclick="location.href='index.html'">← leave rock hyrax "chiroru"</button>
     </div>
 </body>

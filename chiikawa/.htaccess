@@ -1,0 +1,8 @@
+# The Flask app for /creator/ lives here, inside the document root.
+# Passenger reads these files off the filesystem, so blocking HTTP access
+# does not affect the running app. This keeps app.py, logs, templates and
+# the rest of the source from being downloadable.
+#
+# Static assets are NOT served from here -- Flask serves them through the
+# /creator mount, so this rule does not affect /creator/static/assets/*.
+Require all denied

@@ -4,84 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=.8" />
   <title>like a series of tubes</title>
-  <style>
-    body {
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      background-color: black;
-      color: white;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: left;
-    }
-
-    .content {
-      width: 80%;
-      max-width: 600px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .ascii-art {
-      font-family: monospace;
-      white-space: pre;
-      font-size: 14px;
-      font-weight: bold;
-      animation: colorCycle 2s infinite alternate;
-      margin-bottom: 30px;
-    }
-
-    .button-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* two equal-width columns */
-    gap: 20px; /* space between buttons */
-    max-width: 400px;
-    margin: 0 auto;
-    }
-
-    .creator-button {
-      flex: 1;
-      padding: 12px 28px;
-      font-size: 16px;
-      font-family: monospace;
-      background: linear-gradient(135deg, #444, #222);
-      color: #eee;
-      border: 2px solid #666;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-      cursor: pointer;
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-    }
-
-    .creator-button:hover,
-    .creator-button:focus {
-      background: linear-gradient(135deg, #666, #444);
-      border-color: #aaa;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.9);
-      outline: none;
-    }
-
-    .creator-button:active {
-      background: linear-gradient(135deg, #333, #111);
-      border-color: #555;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-    }
-
-    @keyframes colorCycle {
-      0%   { color: red; }
-      14%  { color: orange; }
-      28%  { color: yellow; }
-      42%  { color: green; }
-      57%  { color: blue; }
-      71%  { color: indigo; }
-      85%  { color: violet; }
-      100% { color: white; }
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <div class="content">
@@ -93,11 +16,7 @@
 /_/  |_/_/_.___/\__, /\__/\___/_/   \____/____/  
                /____/                            
     </pre>
-    <div class="button-container">
-        
-      <button class="creator-button" onclick="location.href='/recruiter_portfolio_warm_v3.html'">
-        → Click me recruiter!
-      </button>
+    <div class="button-container grid2">
         
       <button class="creator-button" onclick="location.href='/creator/'">
         → Go make an "u u wa wa u wa"
@@ -127,7 +46,7 @@
         → python game launcher
       </button>
       
-      <button class="creator-button" onclick="location.href='/PlayingGates.html'">
+      <button class="creator-button" onclick="location.href='/playinggates/'">
         → Playing Gates
       </button>
       

@@ -1,3 +1,10 @@
+/* ============================================================
+   albyteros.com — shared stylesheet
+   Extracted from the per-page <style> blocks that used to be
+   duplicated across every page.
+   ============================================================ */
+
+/* ---------- base ---------- */
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: black;
@@ -8,7 +15,15 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    text-align: left;
+    text-align: center;
+}
+
+/* full-viewport stage: content stacked and centred (hyrax) */
+body.stage {
+    flex-direction: column;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .content {
@@ -17,37 +32,123 @@ body {
     padding: 20px;
 }
 
-.ascii-art {
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    animation: colorCycle 2s infinite alternate;
+    user-select: none;
+    font-family: monospace;
+}
+
+/* ---------- button rows ---------- */
+.button-container {
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.button-container.grid2 {           /* two equal-width columns */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.button-container.row {             /* buttons spread across the row */
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-container.single {          /* one centred button */
+    display: flex;
+    justify-content: center;
+    margin: 40px auto 0;
+}
+
+/* ---------- buttons ---------- */
+.creator-button {
+    flex: 1;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-family: monospace;
+    background: linear-gradient(135deg, #444, #222);
+    color: #eee;
+    border: 2px solid #666;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;          /* for <a> tags */
+}
+
+.creator-button.fill {              /* fills its grid cell */
+    width: 100%;
+    padding: 12px 0;
+    display: block;
+}
+
+.creator-button.compact {           /* natural width, not stretched */
+    flex: 0 0 auto;
+    padding: 12px 24px;
+}
+
+.creator-button:hover,
+.creator-button:focus {
+    background: linear-gradient(135deg, #666, #444);
+    border-color: #aaa;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.9);
+    outline: none;
+}
+
+.creator-button:active {
+    background: linear-gradient(135deg, #333, #111);
+    border-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------- ascii art ---------- */
+.ascii-art {                        /* landing page banner */
     font-family: monospace;
     white-space: pre;
     font-size: 14px;
     font-weight: bold;
-    animation: strobe 1s infinite alternate; /* Strobe effect for ASCII Art */
-}
-
-h1 {
-    border-bottom: 2px solid white; /* Default border */
-    padding-bottom: 5px;
-    animation: borderStrobe 2s infinite alternate;
-}
-
-a.strobe {
-    text-decoration: underline;
-    font-weight: bold;
     animation: colorCycle 2s infinite alternate;
+    margin-bottom: 30px;
 }
 
-@keyframes borderStrobe {
-    0% { border-bottom-color: red; }
-    14% { border-bottom-color: orange; }
-    28% { border-bottom-color: yellow; }
-    42% { border-bottom-color: green; }
-    57% { border-bottom-color: blue; }
-    71% { border-bottom-color: indigo; }
-    85% { border-bottom-color: violet; }
-    100% { border-bottom-color: white; }
+.ascii-hyrax {                      /* full-page creature */
+    font-family: monospace;
+    font-size: 3px;
+    color: white;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    animation: rainbow 2s infinite;
 }
 
+/* ---------- patch notes ---------- */
+h3 {
+    font-family: monospace;
+    font-size: 1.1rem;
+    margin-top: 30px;
+    margin-bottom: 8px;
+    animation: colorCycle 2s infinite alternate;
+    text-align: left;
+}
+
+ul {
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+
+li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: white;
+    text-align: left;
+    list-style: disc;
+}
+
+/* ---------- animations ---------- */
 @keyframes colorCycle {
     0%   { color: red; }
     14%  { color: orange; }
@@ -57,4 +158,15 @@ a.strobe {
     71%  { color: indigo; }
     85%  { color: violet; }
     100% { color: white; }
+}
+
+@keyframes rainbow {
+    0%   { color: red; }
+    14%  { color: orange; }
+    28%  { color: yellow; }
+    42%  { color: green; }
+    57%  { color: blue; }
+    71%  { color: indigo; }
+    85%  { color: violet; }
+    100% { color: red; }
 }
