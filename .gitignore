@@ -1,4 +1,9 @@
-
+# Lives on the server only -- not in git.
+# Re-upload manually after any clean redeploy.
 /StreetFighterXTekken.zip
 
-/StreetFighterXTekken.zip
+# Written by the server at runtime; tracking these makes `git pull` abort
+# on the live checkout with "local changes would be overwritten".
+chiikawa/stderr.log
+chiikawa/__pycache__/
+*.pyc

@@ -57,12 +57,6 @@ h2 {
     justify-content: space-between;
 }
 
-.button-container.single {          /* one centred button */
-    display: flex;
-    justify-content: center;
-    margin: 40px auto 0;
-}
-
 /* ---------- buttons ---------- */
 .creator-button {
     flex: 1;
@@ -85,11 +79,6 @@ h2 {
     width: 100%;
     padding: 12px 0;
     display: block;
-}
-
-.creator-button.compact {           /* natural width, not stretched */
-    flex: 0 0 auto;
-    padding: 12px 24px;
 }
 
 .creator-button:hover,

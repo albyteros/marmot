@@ -1,0 +1,213 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+
+\begin{center}
+    \textbf{\Huge \scshape Andrew Watters} \\ \vspace{1pt}
+    \small Auburn, AL $|$ (334) 549-0173 $|$
+    \href{mailto:andrewwatters622@gmail.com}{\underline{andrewwatters622@gmail.com}} $|$
+    \href{https://www.albyteros.com}{\underline{albyteros.com}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Auburn University}{Auburn, AL}
+      {B.S. Computer Science, Concentration: Systems \& Artificial Intelligence}{Aug. 2025 -- May 2029}
+    \resumeSubheading
+      {Enterprise High School}{Enterprise, AL}
+      {High School Diploma $|$ GPA: 4.4 (Weighted) $|$ ACT: 35}{Aug. 2021 -- May 2025}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Data Engineer}{Auburn, AL}
+      {Auburn University RFID Lab}{May 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Built and maintained production ETL pipelines in Python and Polars, extracting from BigQuery and loading into Azure SQL for enterprise retail clients}
+        \resumeItem{Developed BigQuery SQL for store-level RFID inventory analytics across multiple locations, supporting client-facing reporting}
+        \resumeItem{Built a UPC enrichment web application with Streamlit and Azure SQL, containerized with Docker, giving non-technical users self-service access to product data}
+        \resumeItem{Implemented Pandera-based data validation to catch schema and quality violations before load, reducing downstream pipeline failures}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{Self-Hosted Linux Infrastructure} $|$ \emph{Ubuntu Server, Docker Compose, Bash, SSH}}{}
+          \resumeItemListStart
+            \resumeItem{Built and administer a bare-metal home server running Ubuntu 26.04 LTS}
+            \resumeItem{Deploy and maintain containerized services via Docker Compose with SSH hardening and remote administration}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Playing Gates} $|$ \emph{Godot 4, GDScript}}{}
+          \resumeItemListStart
+            \resumeItem{Designed and developed a laser-based puzzle game covering level design, game logic, and the physics of beam reflection and redirection}
+            \resumeItem{Published as a playable browser build on \href{https://www.albyteros.com}{\underline{albyteros.com}}}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{EZ3 Controller Prototype} $|$ \emph{Fusion 360, Embedded Systems}}{2025}
+          \resumeItemListStart
+            \resumeItem{Designed and built an accessible game controller prototype for players with limited motor control}
+            \resumeItem{Awarded a \$10{,}000 Be More Grant for innovation in assistive technology}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{albyteros.com} $|$ \emph{HTML, CSS}}{}
+          \resumeItemListStart
+            \resumeItem{Personal portfolio site built and maintained independently, hosting project write-ups and playable browser builds}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, Python, SQL, C++, HTML/CSS} \\
+     \textbf{Data \& Backend}{: Polars, BigQuery, Azure SQL, MySQL, Pandera, Streamlit, Flask} \\
+     \textbf{Systems \& Infrastructure}{: Linux (Ubuntu Server), Docker, SSH, Bash, Git} \\
+     \textbf{Tools \& Platforms}{: Godot Engine, Autodesk Fusion 360, ESP32 / Embedded Systems}
+    }}
+ \end{itemize}
+
+
+%-----------LEADERSHIP-----------
+\section{Leadership \& Extracurriculars}
+  \resumeItemListStart
+      \resumeItem{\textbf{FBLA} (2021--2025) --- Two-time State Convention award winner; led Computer Game Programming design team}
+      \resumeItem{\textbf{JROTC} (2021--2025) --- Achieved LET IV (maximum level); commissioned rank of Second Lieutenant; earned highest GPA in the Wildcat Battalion}
+      \resumeItem{\textbf{Debate Team} (2022--2025) --- Founded and facilitated the team from the ground up}
+  \resumeItemListEnd
+
+
+%-----------HONORS-----------
+\section{Honors \& Recognition}
+  \resumeItemListStart
+      \resumeItem{\textbf{Auburn University Presidential Scholarship} --- Auburn's highest merit-based scholarship}
+    \resumeItem{\textbf{Samuel Ginn College of Engineering Dean's Annual Scholarship}}
+    \resumeItem{\textbf{2025 CIA STEAM Scholarship Recipient}}
+      \resumeItem{\textbf{2025 Be More Grant Winner} --- \$10{,}000 award for the EZ3 Controller Prototype}
+  \resumeItemListEnd
+
+
+%-------------------------------------------
+\end{document}
