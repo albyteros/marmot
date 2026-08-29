@@ -5,18 +5,36 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 	<title>Playing Gates</title>
 	<style>
-		html, body, #canvas {
+		html, body {
 			margin: 0;
 			padding: 0;
 			border: 0;
+			height: 100%;
+			background: #000;
 		}
 		body {
-			background: black;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			overflow: hidden;
 			touch-action: none;
 		}
+		/* The game renders at a fixed 1152x648 (Godot's default viewport, stretch
+		   mode "disabled"), so pin the canvas to that resolution and letterbox it
+		   into the middle of the window instead of letting the engine blow the
+		   canvas up to full-window size. */
 		#canvas {
 			display: block;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: #000;
+			aspect-ratio: 1152 / 648;
+			width: min(100vw, 100vh * 1152 / 648);
+			height: auto;
+		}
+		@supports (height: 100dvh) {
+			#canvas { width: min(100vw, 100dvh * 1152 / 648); }
 		}
 		#canvas:focus {
 			outline: none;
@@ -25,10 +43,10 @@
 </head>
 <body>
 	<button onclick="location.href='/index.html'" style="position:fixed;top:12px;left:12px;z-index:999;padding:8px 16px;font-family:monospace;font-size:14px;background:#222;color:#eee;border:2px solid #666;border-radius:8px;cursor:pointer;">&#8592; Leave Game</button>
-	<canvas id="canvas"></canvas>
+	<canvas id="canvas" width="1152" height="648"></canvas>
 	<script src="PlayingGates.js"></script>
 	<script>
-		const engine = new Engine({"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"PlayingGates","experimentalVK":false,"fileSizes":{"PlayingGates.pck":2702500,"PlayingGates.wasm":38034280},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4});
+		const engine = new Engine({"args":[],"canvasResizePolicy":0,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"PlayingGates","experimentalVK":false,"fileSizes":{"PlayingGates.pck":2702500,"PlayingGates.wasm":38034280},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4});
 		engine.startGame();
 	</script>
 </body>
