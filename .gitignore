@@ -1,6 +1,7 @@
 # Lives on the server only -- not in git.
 # Re-upload manually after any clean redeploy.
 /StreetFighterXTekken.zip
+.well-known/
 
 # Written by the server at runtime; tracking these makes `git pull` abort
 # on the live checkout with "local changes would be overwritten".
