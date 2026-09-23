@@ -31,14 +31,23 @@ if (($_SERVER['HTTP_X_GITHUB_EVENT'] ?? '') === 'ping') {
 
 $payload = json_decode($body, true);
 $ref     = $payload['ref'] ?? '';
+$repo    = $payload['repository']['name'] ?? '';
 
-if ($ref !== 'refs/heads/master') {
-    exit("ignored: {$ref}\n");
+$git = 'env HOME=/home/albytfon /usr/bin/git -C /home/albytfon/public_html';
+
+// --remote: Webpapers tracks the tip of its own main branch rather than the
+// commit pinned in marmot, so new webpapers go live without a marmot commit.
+$updateWebpapers = "{$git} submodule update --init --remote Webpapers";
+
+if ($repo === 'marmot' && $ref === 'refs/heads/master') {
+    $steps = "{$git} pull --ff-only origin master && {$updateWebpapers}";
+} elseif ($repo === 'webpapers' && $ref === 'refs/heads/main') {
+    $steps = $updateWebpapers;
+} else {
+    exit("ignored: {$repo} {$ref}\n");
 }
 
-$cmd = 'flock -n /home/albytfon/.deploy.lock '
-     . 'env HOME=/home/albytfon '
-     . '/usr/bin/git -C /home/albytfon/public_html pull --ff-only origin master 2>&1';
+$cmd = "flock -n /home/albytfon/.deploy.lock sh -c " . escapeshellarg($steps) . " 2>&1";
 
 $out = shell_exec($cmd);
 

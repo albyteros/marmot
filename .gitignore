@@ -8,3 +8,5 @@
 chiikawa/stderr.log
 chiikawa/__pycache__/
 *.pyc
+
+.DS_Store

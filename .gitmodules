@@ -1,0 +1,4 @@
+[submodule "Webpapers"]
+	path = Webpapers
+	url = https://github.com/albyteros/webpapers.git
+	branch = main

@@ -14,10 +14,29 @@
       A collection of beautiful HTML based wallpapers. I made these after wanting to have a nice animated background on Mac, and discovering Plash.
     </p>
 
+    <div id="webpaper-list" class="button-container grid2"></div>
+    <br />
+
     <div class="button-container grid2">
       <a href="navigator.zip" class="creator-button fill" download>↓ Yeah bro I love "itch.io games"</a>
       <button class="creator-button fill" onclick="location.href='index.html'">← I prefer steam</button>
     </div>
   </div>
+
+  <script>
+    // Filled from the Webpapers submodule, so new webpapers show up without editing this page.
+    fetch('/webpapers-list.php')
+      .then(res => res.json())
+      .then(papers => {
+        const list = document.getElementById('webpaper-list');
+        for (const paper of papers) {
+          const a = document.createElement('a');
+          a.className = 'creator-button fill';
+          a.href = paper.url;
+          a.textContent = paper.name;
+          list.appendChild(a);
+        }
+      });
+  </script>
 </body>
 </html>
