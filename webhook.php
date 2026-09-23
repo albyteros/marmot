@@ -31,7 +31,7 @@ if (($_SERVER['HTTP_X_GITHUB_EVENT'] ?? '') === 'ping') {
 
 $payload = json_decode($body, true);
 $ref     = $payload['ref'] ?? '';
-$repo    = $payload['repository']['name'] ?? '';
+$repo    = strtolower($payload['repository']['name'] ?? '');   // GitHub sends it as displayed, e.g. "Webpapers"
 
 $git = 'env HOME=/home/albytfon /usr/bin/git -C /home/albytfon/public_html';
 
