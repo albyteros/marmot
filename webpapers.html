@@ -11,24 +11,26 @@
     <h2>Webpapers</h2>
 
     <p>
-      A collection of beautiful HTML based wallpapers. I made these after wanting to have a nice animated background on Mac, and discovering Plash.
+      A collection of equally powerful and beautiful HTML based wallpapers dubbed 'Webpapers'. I made these after wanting to have a nice animated background on Mac, and discovering Plash. Free to download and modify however you like, I only ask that you contribute them to the repo which can be found below. If you do contribute, the site will update live, so you can display your creations here!
     </p>
 
     <div id="webpaper-list" class="button-container grid2"></div>
     <br />
 
     <div class="button-container grid2">
-      <a href="navigator.zip" class="creator-button fill" download>↓ Yeah bro I love "itch.io games"</a>
-      <button class="creator-button fill" onclick="location.href='index.html'">← I prefer steam</button>
+      <a href="https://github.com/albyteros/webpapers" class="creator-button fill">→ Contribute on GitHub</a>
+      <button class="creator-button fill" onclick="location.href='index.html'">← Too much CPU *snorts*</button>
     </div>
   </div>
 
   <script>
     // Filled from the Webpapers submodule, so new webpapers show up without editing this page.
+    const list = document.getElementById('webpaper-list');
+
     fetch('/webpapers-list.php')
       .then(res => res.json())
       .then(papers => {
-        const list = document.getElementById('webpaper-list');
+        if (papers.length === 0) throw new Error('no webpapers');
         for (const paper of papers) {
           const a = document.createElement('a');
           a.className = 'creator-button fill';
@@ -36,6 +38,9 @@
           a.textContent = paper.name;
           list.appendChild(a);
         }
+      })
+      .catch(() => {
+        list.outerHTML = '<p>No webpapers here right now, check back soon.</p>';
       });
   </script>
 </body>
