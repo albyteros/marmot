@@ -118,23 +118,18 @@ h2 {
 h3 {
     font-family: monospace;
     font-size: 1.1rem;
-    margin-top: 30px;
-    margin-bottom: 8px;
-    animation: colorCycle 2s infinite alternate;
-    text-align: left;
+    color: #aaa;
+    margin: 0 0 8px;
 }
 
 ul {
-    padding-left: 0;
-    margin-bottom: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
 }
 
 li {
-    font-size: 0.95rem;
     line-height: 1.7;
-    color: white;
-    text-align: left;
-    list-style: disc;
 }
 
 /* ---------- animations ---------- */
