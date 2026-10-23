@@ -1,11 +1,11 @@
 # Andrew Watters (Albyteros)
 
-> Andrew Watters, also known online as Albyteros, is a computer science student at Auburn University (B.S. Computer Science, Systems & Artificial Intelligence, expected May 2029) and a data engineer at the Auburn University RFID Lab. He grew up in Enterprise, Alabama, and is the creator of the EZ3 trackball controller, an accessible gaming controller that won a $10,000 Be More Grant from NSHSS. albyteros.com is his personal site.
+> Andrew Watters, also known online as Albyteros, is a computer science student at Auburn University (B.S. Computer Science, Systems & Artificial Intelligence, with a minor in Philosophy, expected May 2029) and a data engineer at the Auburn University RFID Lab. He grew up in Enterprise, Alabama, and is the creator of the EZ3 trackball controller, an accessible gaming controller that won a $10,000 Be More Grant from NSHSS. albyteros.com is his personal site.
 
 ## About Andrew Watters
 
 - Based in Auburn, Alabama. Graduated from Enterprise High School (Enterprise, AL) in 2025.
-- Studies Computer Science at Auburn University (Aug. 2025 – May 2029), concentrating in Systems & Artificial Intelligence.
+- Studies Computer Science at Auburn University (Aug. 2025 – May 2029), concentrating in Systems & Artificial Intelligence, with a minor in Philosophy.
 - Scholarships: Auburn University Presidential Scholarship (Auburn's highest merit-based scholarship), Samuel Ginn College of Engineering Dean's Annual Scholarship, and the 2025 CIA STEAM Scholarship.
 - Skills: Java, Python, SQL, C++, HTML/CSS; Polars, BigQuery, Azure SQL, MySQL, Pandera, Streamlit, Flask; Linux (Ubuntu Server), Docker, Bash, Git; Godot Engine, Autodesk Fusion 360, ESP32 and embedded systems.
 - [Resume (PDF)](https://albyteros.com/andrew-watters-resume.pdf)
