@@ -1,0 +1,30 @@
+# Andrew Watters (Albyteros)
+
+> Andrew Watters, also known online as Albyteros, is a computer science student at Auburn University (B.S. Computer Science, Systems & Artificial Intelligence, expected May 2029) and a data engineer at the Auburn University RFID Lab. He grew up in Enterprise, Alabama, and is the creator of the EZ3 trackball controller, an accessible gaming controller that won a $10,000 Be More Grant from NSHSS. albyteros.com is his personal site.
+
+## About Andrew Watters
+
+- Based in Auburn, Alabama. Graduated from Enterprise High School (Enterprise, AL) in 2025.
+- Studies Computer Science at Auburn University (Aug. 2025 – May 2029), concentrating in Systems & Artificial Intelligence.
+- Scholarships: Auburn University Presidential Scholarship (Auburn's highest merit-based scholarship), Samuel Ginn College of Engineering Dean's Annual Scholarship, and the 2025 CIA STEAM Scholarship.
+- Skills: Java, Python, SQL, C++, HTML/CSS; Polars, BigQuery, Azure SQL, MySQL, Pandera, Streamlit, Flask; Linux (Ubuntu Server), Docker, Bash, Git; Godot Engine, Autodesk Fusion 360, ESP32 and embedded systems.
+- [Resume (PDF)](https://albyteros.com/andrew-watters-resume.pdf)
+- [GitHub: albyteros](https://github.com/albyteros)
+
+## Experience
+
+- **Data Engineer, Auburn University RFID Lab** (May 2026 – present): Builds production ETL pipelines in Python and Polars from BigQuery to Azure SQL for enterprise retail clients. Writes BigQuery SQL for store-level RFID inventory analytics. Built a Dockerized Streamlit app for UPC enrichment and added Pandera data validation to catch quality issues before load.
+
+## Projects
+
+- [EZ3 Trackball Controller](https://albyteros.com/ezcontrollers.html): A DualSense controller combined with a custom trackball rig for mouse-level aiming accuracy, designed in Fusion 360. It helps players with limited motor control and players who can't use a mouse and keyboard. Won a $10,000 Be More Grant from NSHSS for innovation in assistive technology. [Press coverage from WDHN](https://www.wdhn.com/news/local-news/coffee-county/enterprise/enterprise-teen-makes-major-development-for-gamers-with-disabilities/).
+- [Playing Gates](https://albyteros.com/playinggates/): A laser-puzzle browser game made in Godot 4 with emitters, mirrors, forcefields and splitters. [Devlog](https://albyteros.com/patchnotes.html).
+- [Webpapers](https://albyteros.com/webpapers.html): Free, open-source animated HTML wallpapers for Mac via Plash. [GitHub](https://github.com/albyteros/webpapers).
+- [Navigator](https://albyteros.com/navigator.html): A lightweight Python game launcher that tracks last-played times and 0–10 ratings for any .exe.
+- Self-hosted Linux infrastructure: A bare-metal Ubuntu Server home lab running containerized services with Docker Compose and hardened SSH.
+
+## Leadership
+
+- FBLA (2021–2025): Two-time State Convention award winner; led the Computer Game Programming design team.
+- JROTC (2021–2025): Reached LET IV and the rank of Second Lieutenant; highest GPA in the Wildcat Battalion.
+- Debate Team (2022–2025): Founded the team at Enterprise High School.

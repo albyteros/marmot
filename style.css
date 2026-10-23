@@ -69,6 +69,8 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     cursor: pointer;
+    text-decoration: none;          /* buttons are <a> links so crawlers can follow them */
+    box-sizing: border-box;
     transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     user-select: none;
     text-align: center;
@@ -153,4 +155,15 @@ li {
     71%  { color: indigo; }
     85%  { color: violet; }
     100% { color: red; }
+}
+
+/* ---------- accessibility ---------- */
+.visually-hidden {                  /* readable by crawlers and screen readers, not shown */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
