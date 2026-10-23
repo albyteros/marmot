@@ -71,6 +71,9 @@ h2 {
     cursor: pointer;
     text-decoration: none;          /* buttons are <a> links so crawlers can follow them */
     box-sizing: border-box;
+    display: flex;                  /* centre the label vertically like a <button> did */
+    align-items: center;
+    justify-content: center;
     transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     user-select: none;
     text-align: center;
@@ -80,7 +83,6 @@ h2 {
 .creator-button.fill {              /* fills its grid cell */
     width: 100%;
     padding: 12px 0;
-    display: block;
 }
 
 .creator-button:hover,
